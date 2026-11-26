@@ -23,8 +23,8 @@ def health():
 @app.post("/documents/analyze")
 async def analyze_upload(file: UploadFile = File(...)):
     filename = file.filename or "uploaded-document"
-    if not filename.lower().endswith((".pdf", ".docx")):
-        raise HTTPException(400, "Only PDF and DOCX files are supported.")
+    if not filename.lower().endswith((".pdf", ".docx", ".txt")):
+        raise HTTPException(400, "Only PDF, DOCX, and TXT files are supported.")
     content = await file.read()
     if len(content) > settings.contractiq_max_upload_mb * 1024 * 1024:
         raise HTTPException(413, f"File exceeds {settings.contractiq_max_upload_mb} MB limit.")
