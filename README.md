@@ -20,7 +20,7 @@ In a second terminal:
 streamlit run dashboard/app.py
 ```
 
-Dashboard: http://localhost:8501 · API docs: http://localhost:8000/docs
+Dashboard: http://localhost:8501 · API docs: http://localhost:8000/docs\n\nTo try the included fictional example, upload samples/sample_contract.txt in the dashboard. TXT is supported for the demo; normal contract uploads can be PDF or DOCX.\n\nFor optional LLM analysis, copy .env.example to .env and set OPENAI_API_KEY. Without it, the app uses the labelled rules-based baseline.
 
 ## Features
 - PDF, DOCX and TXT extraction with page/paragraph references
