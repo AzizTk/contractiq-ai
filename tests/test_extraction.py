@@ -15,9 +15,9 @@ def test_docx_extraction_reads_paragraphs():
 
 def test_unsupported_file_is_rejected():
     try:
-        extract_document("contract.txt", b"hello")
+        extract_document("contract.csv", b"hello")
     except ValueError as exc:
-        assert "PDF and DOCX" in str(exc)
+        assert "Unsupported file type" in str(exc)
     else:
         raise AssertionError("Expected unsupported file error")
 
