@@ -10,7 +10,7 @@ st.caption("Contract intelligence · evidence-led review · human decision suppo
 st.warning("ContractIQ is not legal advice. Review every finding against the original agreement.")
 with st.sidebar:
     st.subheader("Workspace")
-    uploaded = st.file_uploader("Upload contract", type=["pdf", "docx"])
+    uploaded = st.file_uploader("Upload contract", type=["pdf", "docx", "txt"])
     run = st.button("Analyze contract", type="primary", disabled=uploaded is None, use_container_width=True)
     st.divider()
     st.caption(f"API: {API}")
