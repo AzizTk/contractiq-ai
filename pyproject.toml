@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "contractiq-ai"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = ["fastapi>=0.110", "uvicorn[standard]>=0.27", "python-multipart>=0.0.9", "pydantic>=2.6", "pydantic-settings>=2.2", "sqlalchemy>=2.0", "pymupdf>=1.24", "python-docx>=1.1", "streamlit>=1.32", "requests>=2.31", "pandas>=2.2", "openai>=1.30"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "httpx>=0.27", "ruff>=0.4"]
+
+[tool.setuptools.packages.find]
+include = ["contractiq*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
