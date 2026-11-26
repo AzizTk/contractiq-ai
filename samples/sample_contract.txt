@@ -1,0 +1,32 @@
+SAMPLE SERVICES AGREEMENT — FICTIONAL DEMO ONLY
+
+This sample is fictional and created for software testing. It is not a real contract.
+
+This Services Agreement is entered into between Northstar Analytics Ltd. ("Customer") and Blue Harbor Systems Inc. ("Provider"), effective 1 January 2026.
+
+1. Services
+Provider shall deliver data processing and reporting services described in the statement of work. Provider must maintain commercially reasonable safeguards for Customer data.
+
+2. Fees and payment
+Customer shall pay EUR 85,000 for the initial term. Invoices are payable within 30 days. Interest at 1.5% per month may apply to overdue amounts.
+
+3. Confidentiality
+Each party shall protect confidential information received from the other party and shall not disclose it except to personnel and advisers who need to know.
+
+4. Indemnity
+Provider shall indemnify Customer against any and all claims, losses, and expenses arising in connection with the services.
+
+5. Limitation of liability
+Provider's liability under this agreement is unlimited and without limitation for all claims arising from the services.
+
+6. Term and renewal
+The initial term ends on 31 December 2026. This agreement shall automatically renew for successive one-year periods unless either party gives 90 days' written notice.
+
+7. Termination
+Customer may terminate this agreement at any time in its sole discretion by written notice.
+
+8. Governing law
+This agreement is governed by the laws of England and Wales.
+
+9. General
+Provider shall return Customer materials upon termination. Each party must notify the other of a material security incident without undue delay.
