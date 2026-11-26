@@ -23,7 +23,7 @@ streamlit run dashboard/app.py
 Dashboard: http://localhost:8501 · API docs: http://localhost:8000/docs
 
 ## Features
-- PDF and DOCX extraction with page/paragraph references
+- PDF, DOCX and TXT extraction with page/paragraph references
 - Structured contract snapshot and obligation extraction
 - Explainable flags for liability, indemnity, termination, renewal, payment and confidentiality
 - Evidence excerpts for findings
