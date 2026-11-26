@@ -30,8 +30,12 @@ def extract_document(filename: str, content: bytes) -> list[TextChunk]:
                 value = " | ".join(cell.text.strip() for cell in row.cells if cell.text.strip())
                 if value:
                     chunks.append(TextChunk(location=f"Table {table_idx}, row {row_idx}", text=value))
+    elif suffix == "txt":
+        value = content.decode("utf-8-sig").strip()
+        if value:
+            chunks.append(TextChunk(location="Text file", text=value))
     else:
-        raise ValueError("Unsupported file type. Upload a PDF or DOCX document.")
+        raise ValueError("Unsupported file type. Upload a PDF, DOCX, or TXT document.")
     if not chunks:
         raise ValueError("No extractable text found. This may be a scanned PDF; OCR is not included yet.")
     return chunks
