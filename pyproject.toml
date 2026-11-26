@@ -23,3 +23,5 @@ target-version = "py310"
 
 [tool.ruff.lint]
 select = ["E", "F"]
+# Long prose, regex patterns, and SQL statements are intentionally kept readable.
+ignore = ["E501"]
