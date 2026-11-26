@@ -28,7 +28,7 @@ def _evidence(chunks: list[TextChunk], pattern: str) -> list[Evidence]:
 
 
 def rules_analysis(filename: str, chunks: list[TextChunk]) -> ContractAnalysis:
-    full = "\\n".join(c.text for c in chunks)
+    full = "\n".join(c.text for c in chunks)
     findings = []
     detected = []
     for category, title, severity, pattern, recommendation in RULES:
@@ -42,13 +42,13 @@ def rules_analysis(filename: str, chunks: list[TextChunk]) -> ContractAnalysis:
             severity="low", explanation="No common governing-law phrase was detected by the baseline parser.",
             recommendation="Confirm the agreement identifies governing law and dispute forum."))
     parties = []
-    for match in re.finditer(r"(?:between|by and between)\\s+([^,;\\n]{3,80})", full, re.I):
+    for match in re.finditer(r"(?:between|by and between)\s+([^,;\n]{3,80})", full, re.I):
         parties.append(match.group(1).strip())
         if len(parties) == 2:
             break
-    amounts = re.findall(r"(?:USD|EUR|GBP|\\$|€|£)\\s?\\d[\\d,]*(?:\\.\\d{2})?", full)
+    amounts = re.findall(r"(?:USD|EUR|GBP|\$|€|£)\s?\d[\d,]*(?:\.\d{2})?", full)
     obligations = []
-    obligation_pattern = re.compile(r"((?:shall|must|agrees to|is responsible for)\\s+[^.;\\n]{8,180})", re.I)
+    obligation_pattern = re.compile(r"((?:shall|must|agrees to|is responsible for)\s+[^.;\n]{8,180})", re.I)
     for chunk in chunks:
         for match in obligation_pattern.finditer(chunk.text):
             phrase = " ".join(match.group(1).split())
@@ -67,8 +67,7 @@ def rules_analysis(filename: str, chunks: list[TextChunk]) -> ContractAnalysis:
 def analyze(filename: str, chunks: list[TextChunk]) -> ContractAnalysis:
     if not settings.openai_api_key:
         return rules_analysis(filename, chunks)
-    full = "\\n\\n".join(f"[{c.location}]\\n{c.text}" for c in chunks)
-    full = full[:60000]
+    full = "\n\n".join(f"[{c.location}]\n{c.text}" for c in chunks)[:60000]
     instructions = """Analyze this contract for business review. Return ONLY JSON with keys:
 summary, parties, effective_date, end_date, governing_law, contract_value, currency,
 clauses_detected, obligations, findings. Obligations have party, obligation, deadline,
