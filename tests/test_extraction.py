@@ -20,3 +20,9 @@ def test_unsupported_file_is_rejected():
         assert "PDF and DOCX" in str(exc)
     else:
         raise AssertionError("Expected unsupported file error")
+
+
+def test_txt_extraction_reads_sample_text():
+    chunks = extract_document("sample.txt", b"Provider shall deliver services.")
+    assert chunks[0].location == "Text file"
+    assert "shall deliver" in chunks[0].text
